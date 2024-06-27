@@ -1,0 +1,9 @@
+.idea
+.git
+venv
+LICENSE
+README.md
+.env.example
+.env
+.flake8
+.gitignore

@@ -7,7 +7,7 @@ from aiogram.enums import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
 
 from config_data.config import Config, load_config
-from handlers import admin_handlers, user_handlers, other_handlers
+from handlers import other_handlers
 
 logger = logging.getLogger(__name__)
 
@@ -29,6 +29,7 @@ async def main():
         default=DefaultBotProperties(parse_mode=ParseMode.HTML)
     )
     dp = Dispatcher(storage=storage)
+    dp.workflow_data.update({'config': config})
 
     logger.info('Подключаем роутеры')
     dp.include_router(other_handlers.router)
